@@ -1,0 +1,48 @@
+body{
+    margin: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 800;
+    background-color: rgb(14, 1, 1)
+;}
+#mainButtons{
+    padding: 15vh 0;
+    width:80%;
+    margin:30px auto;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(235, 233, 233);
+    border-radius: 40px;
+    box-shadow: 10px 10px 5px black;
+   
+}
+.button{
+height :200px;
+width :200px;
+/* background-color: rgb(193, 49, 23); */
+color:white;
+border-radius: 40px;
+cursor: pointer;
+}
+.button:hover{
+    transform: translateY(-5px);}
+#rock{
+    background: rgb(130, 3, 3);
+}
+#paper{
+    background: rgb(127, 223, 223);
+}
+.button#scissor{
+    background-color: rgb(30, 216, 40);
+}
+#result{
+    width: 80%;
+    height: 20vh;
+    margin:auto ;
+    padding: 10px;
+    background-color: rgb(247, 242, 242);
+    color:rgb(229, 24, 24);
+    border-radius: 40px;
+    text-align: center;
+    justify-content: center;
+}
