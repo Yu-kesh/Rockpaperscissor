@@ -1,63 +1,36 @@
-function machinePlay(){
-    const choices=["rock", "paper","scissor"];
-   const randomIndex= Math.floor(Math.random()*choices.length);
-    return choices[randomIndex];
+function machinePlay() {
+  const choices = ["rock", "paper", "scissor"];
+  const randomIndex = Math.floor(Math.random() * choices.length);
+  return choices[randomIndex];
+}
+const result1 = document.querySelector("#result1");
+const result2 = document.querySelector("#result2");
+// rules for choices
+
+const rules = {
+  rock: "paper",
+  paper: "scissor",
+  scissor: "rock",
 };
-console.log(machinePlay());
-const buttonRock= document.querySelector("#rock");
-const buttonPaper= document.querySelector("#paper");
-const buttonScissor= document.querySelector("#scissor");
-const result1= document.querySelector("#result1");
-const result2= document.querySelector("#result2");
 
-buttonRock.addEventListener("click", ()=> {
-    const play=machinePlay()
-    if(play==="rock"){
-        result1.textContent="You choose Rock. Machine also choose Rock"
-        result2.textContent="You tie."
-        
-    }else if(play==="paper"){
-         result1.textContent="You choose Paper. Machine choose Rock"
-        result2.textContent="You win."
-        alert("you won")
+function playGame(playerChoice) {
+  const machineChoice = machinePlay();
+  result1.textContent = `You Chose ${playerChoice}. machine Chose ${machineChoice}.`;
 
-    }else{
-        result1.textContent="You choose scissor. Machine choose Rock"
-        result2.textContent="You loose."
-       
-    }
-});
+  if (playerChoice === machineChoice) {
+    result2.textContent = "it's a Tie";
+    return;
+  }
+  if (rules[playerChoice] === machineChoice) {
+    result2.textContent = "machine Wins";
+  } else {
+    result2.textContent = "you Win";
+  }
+  if (!rules[playerChoice]) return;
+}
 
-buttonPaper.addEventListener("click", ()=> {
-    play=machinePlay()
-    if(play==="paper"){
-        result1.textContent="You choose Paper. Machine also choose Paper"
-        result2.textContent="You tie."
-        
-    }else if(play==="Rock"){
-         result1.textContent="You choose Rock. Machine choose Paper"
-        result2.textContent="You Loose."
-
-    }else{
-        result1.textContent="You choose scissor. Machine choose Paper"
-        result2.textContent="You Win."
-      
-    }
-});
-
-buttonScissor.addEventListener("click", ()=> {
-    play=machinePlay()
-    if(play==="scissor"){
-        result1.textContent="You choose Paper. Machine also choose scissor"
-        result2.textContent="You win."
-        
-    }else if(play==="Rock"){PaperPaper
-         result1.textContent="You choose Rock. Machine choose scissor"
-        result2.textContent="You Win."
-
-    }else{
-        result1.textContent="You choose scissor. Machine choose scissor"
-        result2.textContent="You Tied."
-       
-    }
+document.querySelectorAll("button").forEach((button) => {
+  button.addEventListener("click", () => {
+    playGame(button.id);
+  });
 });
